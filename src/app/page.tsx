@@ -1,19 +1,19 @@
 import Banner from "@/components/Banner";
-import Blog from "@/components/Blog";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import NatureOne from "@/components/NatureOne";
-import { ShowSect } from "@/components/ShowSect";
+import Cta from "@/components/Cta";
+import ExtraSect from "@/components/ExtraSect";
+import Series from "@/components/Series";
+import { TopRated } from "@/components/TopRated";
+import Upcoming from "@/components/Upcoming";
 
 export default function Home() {
   return (
     <>
-      <main>
-        <Banner/>
-        <ShowSect/>
-        <Blog/>
-      </main>
-      <Footer/>
+      <Banner/>
+      <Upcoming/>
+      <ExtraSect/>
+      <TopRated/>
+      <Series/>
+      <Cta/>
     </>
   );
 }
