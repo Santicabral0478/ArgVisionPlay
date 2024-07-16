@@ -1,8 +1,29 @@
+"use client"
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 export const ExtraSect = ()=>{
 
+  const back1 = "/service-1.jpg"
+  const back2 = "/service-2.jpg"
+  const back3 = "/service-3.jpg"
+
+  const [actImage, setActImage] = useState(back1);
+
+  const handleOnchangeBackTwo = ()=>{
+    setActImage(back2);
+    setTimeout(()=>{
+      setActImage(back1);
+    }, 8000)
+  }
+
+  const handleOnchangeBackTree = ()=>{
+    setActImage(back3);
+    setTimeout(()=>{
+      setActImage(back1);
+    }, 8000)
+  }
     
     return(
         <section className="service">
@@ -10,7 +31,7 @@ export const ExtraSect = ()=>{
 
           <div className="service-banner">
             <figure className="service-image">
-              <Image width={400} height={400} alt="Service image" src={"/service-1.jpg"} ></Image>
+              <Image width={400} height={400} alt="Service image" src={actImage} ></Image>
             </figure>
 
 
@@ -25,8 +46,6 @@ export const ExtraSect = ()=>{
           </div>
 
           <div className="service-content">
-
-            <p className="service-subtitle">Our Servicess</p>
 
             <h2 className="h2 service-title">Download Your Shows Watch Offline.</h2>
 
@@ -45,7 +64,7 @@ export const ExtraSect = ()=>{
                     {/* <ion-icon name="tv"></ion-icon> */}
                   </div>
 
-                  <div className="card-content">
+                  <div onClick={handleOnchangeBackTwo} className="card-content">
                     <h3 className="h3 card-title">Enjoy on Your TV.</h3>
 
                     <p className="card-text">
@@ -63,7 +82,7 @@ export const ExtraSect = ()=>{
                     {/* <ion-icon name="videocam"></ion-icon> */}
                   </div>
 
-                  <div className="card-content">
+                  <div onClick={handleOnchangeBackTree} className="card-content">
                     <h3 className="h3 card-title">Watch Everywhere.</h3>
 
                     <p className="card-text">
