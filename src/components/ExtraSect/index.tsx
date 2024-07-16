@@ -26,7 +26,7 @@ export const ExtraSect = ()=>{
 
           <div className="service-content">
 
-            <p className="service-subtitle">Our Services</p>
+            <p className="service-subtitle">Our Servicess</p>
 
             <h2 className="h2 service-title">Download Your Shows Watch Offline.</h2>
 
