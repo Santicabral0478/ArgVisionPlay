@@ -9,7 +9,7 @@ const Banner = () => {
     <section className="hero">
       <div className="back-img-container">
         <div className="space-color"></div>
-        <Image width={200} height={200} alt="background 1" src={"/mate.jpg"} ></Image>
+        <div className="image-container-back"></div>
       </div>
     <div className="container">
 

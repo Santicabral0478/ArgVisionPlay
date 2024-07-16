@@ -7,8 +7,6 @@ export const Upcoming = ()=>{
           <div className="flex-wrapper">
 
             <div className="title-wrapper">
-              <p className="section-subtitle">Online Streaming</p>
-
               <h2 className="h2 section-title">Upcoming Movies</h2>
             </div>
 
