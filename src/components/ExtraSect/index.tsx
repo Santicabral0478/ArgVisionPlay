@@ -1,3 +1,6 @@
+import Image from "next/image";
+import Link from "next/link";
+
 export const ExtraSect = ()=>{
 
     
@@ -6,15 +9,19 @@ export const ExtraSect = ()=>{
         <div className="container">
 
           <div className="service-banner">
-            <figure>
-              <img src="/service-banner.jpg" alt="HD 4k resolution! only $3.99"/>
+            <figure className="service-image">
+              <Image width={400} height={400} alt="Service image" src={"/service-1.jpg"} ></Image>
             </figure>
 
-            <a href="./assets/images/service-banner.jpg" download className="service-btn">
-              <span>Download</span>
 
-              {/* <ion-icon name="download-outline"></ion-icon> */}
-            </a>
+            <div className="service-btn-fancy">
+              <Link className="fancy-service " href={"/"}>
+                <span className="top-key-service"></span>
+                <span className="text-service">Buy Tickets</span>
+                <span className="bottom-key-1-service"></span>
+                <span className="bottom-key-2-service"></span>
+              </Link>
+            </div>
           </div>
 
           <div className="service-content">

@@ -579,8 +579,9 @@ body.active { overflow: hidden; }
 
 .upcoming .flex-wrapper { margin-bottom: 50px; }
 
-.upcoming .section-title { 
-  margin-bottom: 30px; 
+.upcoming .section-title {
+  margin-left: 10px;
+  margin-bottom: 30px;
   position: relative;
 }
 
@@ -633,34 +634,36 @@ body.active { overflow: hidden; }
   background: url("/service-bg.jpg") no-repeat;
   background-size: cover;
   background-position: center;
-  padding-block: var(--section-padding);
+  padding-block: 2rem;
 }
 
 .service-banner {
   position: relative;
-  margin-bottom: 50px;
+  margin-bottom: 2rem;
   max-width: max-content;
+  margin-inline: auto;
 }
 
-.service-banner img { width: 100%; }
+.service-image{
+  width: 100%;
+}
 
-.service-btn {
-  position: absolute;
-  bottom: 0;
-  right: 86px;
-  background: var(--citrine);
-  color: var(--rich-black-fogra-29);
-  font-size: var(--fs-11);
-  text-transform: uppercase;
-  font-weight: var(--fw-500);
-  letter-spacing: 5px;
+.service-image img{
+  width: 100%;
+  height: auto;
+  border-radius: 7px;
+  border: 1px solid #ff980094;
+}
+
+.service-btn-fancy {
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 5px;
-  transform: rotate(0.25turn);
-  transform-origin: bottom right;
-  padding: 28px 35px;
-  border-radius: 6px;
+  background: #ff963f;
+  padding: 1rem;
+  height: 4.3rem;
+  width: 15.5rem;
+  margin-top: 1rem;
 }
 
 .service-btn ion-icon {
@@ -726,7 +729,113 @@ body.active { overflow: hidden; }
 
 .service-card .card-title { margin-bottom: 10px; }
 
+/* SERVICE BUTTON */
 
+.fancy-service {
+  background-color: transparent;
+  border: 2px solid #000;
+  border-radius: 0;
+  box-sizing: border-box;
+  color: #ff963f;
+  cursor: pointer;
+  display: inline-block;
+  float: right;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin: 0;
+  outline: none;
+  overflow: visible;
+  padding: 0.50em 1.5em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: none;
+  transition: all 0.3s ease-in-out;
+  user-select: none;
+  font-size: 13px;
+  position: absolute;
+}
+
+ .fancy-service::before {
+  content: " ";
+  width: 1.5625rem;
+  height: 2px;
+  background: black;
+  top: 50%;
+  left: 1.5em;
+  position: absolute;
+  transform: translateY(-50%);
+  transform-origin: center;
+  transition: background 0.3s linear, width 0.3s linear;
+ }
+ 
+ .fancy-service .text-service {
+  font-size: 1.125em;
+  line-height: 1.33333em;
+  padding-left: 2em;
+  display: block;
+  text-align: left;
+  transition: all 0.3s ease-in-out;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: black;
+ }
+ 
+ .fancy-service .top-key-service {
+  height: 2px;
+  width: 1.5625rem;
+  top: -2px;
+  left: 0.625rem;
+  position: absolute;
+  background: #ff963f;
+  transition: width 0.5s ease-out, left 0.3s ease-out;
+ }
+ 
+ .fancy-service .bottom-key-1-service {
+  height: 2px;
+  width: 1.5625rem;
+  right: 1.875rem;
+  bottom: -2px;
+  position: absolute;
+  background: #ff963f;
+  transition: width 0.5s ease-out, right 0.3s ease-out;
+ }
+ 
+ .fancy-service .bottom-key-2-service {
+  height: 2px;
+  width: 0.625rem;
+  right: 0.625rem;
+  bottom: -2px;
+  position: absolute;
+  background: #ff963f;
+  transition: width 0.5s ease-out, right 0.3s ease-out;
+ }
+ 
+ .fancy-service:hover {
+  color: #ff963f;
+  background: black;
+ }
+ 
+ .fancy-service:hover::before {
+  width: 0.9375rem;
+  background: #ff963f;
+ }
+ 
+ .fancy-service:hover .text-service {
+  color: white;
+  padding-left: 1.5em;
+ }
+ 
+ .fancy-service:hover .top-key-service {
+  left: -2px;
+  width: 0px;
+ }
+ 
+ .fancy-service:hover .bottom-key-1-service,
+  .fancy-service:hover .bottom-key-2-service {
+  right: 0;
+  width: 0;
+ }
 
 
 
@@ -1151,7 +1260,9 @@ body.active { overflow: hidden; }
   .container {
     max-width: 540px;
     margin-inline: auto;
+    padding-inline: 20px;    
   }
+
 
   /* MOVIE CARD */
 
@@ -1196,9 +1307,20 @@ body.active { overflow: hidden; }
     gap: 20px;
   }
 
+  .service-image{
+    width: 80%;
+  }
+
   .service-card .card-icon { margin-bottom: 0; }
 
   .service-card .card-content { width: calc(100% - 115px); }
+
+  .service-btn-fancy {
+    position: absolute;
+    transform: rotate(90deg);
+    bottom: 89px;
+    right: -6rem;
+  }
 
 
 
@@ -1242,9 +1364,12 @@ body.active { overflow: hidden; }
    * REUSED STYLE
    */
 
-  .container { max-width: 720px; }
 
-
+  .container {
+    max-width: 720px;;
+    margin-inline: auto;
+    padding-inline: 30px;    
+  }
 
   /**
    * HEADER
@@ -1314,6 +1439,15 @@ body.active { overflow: hidden; }
 
    .hero {
     box-shadow: inset -25px 47px 50px #010610;
+  }
+
+
+    /**
+   * UPCOMING 
+   */
+
+  .movies-list.has-scrollbar {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   /**
@@ -1396,7 +1530,11 @@ body.active { overflow: hidden; }
    * REUSED STYLE
    */
 
-  .container { max-width: 960px; }
+   .container {
+    max-width: 960px;;
+    margin-inline: auto;
+    padding-inline: 35px;    
+  }
 
   /* MOVIE CARD */
 
@@ -1476,7 +1614,9 @@ body.active { overflow: hidden; }
 
   .upcoming :is(.section-subtitle, .section-title) { text-align: left; }
 
-  .upcoming .movies-list > li { min-width: calc(33.33% - 20px); }
+  .movies-list.has-scrollbar {
+    grid-template-columns: repeat(4, 1fr);
+  }
 
 
 
@@ -1498,7 +1638,18 @@ body.active { overflow: hidden; }
 
   .service-banner { margin-bottom: 0; }
 
-  .service-btn { right: 111px; }
+  .service-image img {
+    min-width: 26rem; 
+  }
+
+  .service-btn-fancy {
+    position: absolute;
+    transform: rotate(90deg);
+    bottom: 89px;
+    right: -7.5rem;
+    box-shadow: 0px 0px 70px #1c1c1c82;
+    border: 1px solid #c97530;
+}
 
 
 
@@ -1586,7 +1737,9 @@ body.active { overflow: hidden; }
 
   /* MOVIE CARD */
 
-  .movies-list { grid-template-columns: repeat(4, 1fr); }
+  .movies-list.has-scrollbar {
+    grid-template-columns: repeat(5, 1fr);
+  }
 
 
 
@@ -1631,6 +1784,13 @@ body.active { overflow: hidden; }
 
   .service-list,
   .service-title { max-width: 480px; }
+
+  .service-btn-fancy {
+    right: -11.5rem;
+    box-shadow: none;
+    border-radius: 0px;
+    border: none;
+  }
 
 
 
