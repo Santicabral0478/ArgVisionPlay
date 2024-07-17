@@ -1,8 +1,13 @@
+import Link from "next/link";
+
 export const Cta = ()=>{
 
 
     return(
         <section className="cta">
+
+          <div className="cta-gradient">
+          </div>
         <div className="container">
 
           <div className="title-wrapper">
@@ -12,13 +17,6 @@ export const Cta = ()=>{
               Enter your email to create or restart your membership.
             </p>
           </div>
-
-          <form action="" className="cta-form">
-            <input type="email" name="email" required placeholder="Enter your email" className="email-field"/>
-
-            <button type="submit" className="cta-form-btn">Get started</button>
-          </form>
-
         </div>
       </section>
     )

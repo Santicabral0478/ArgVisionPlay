@@ -8,16 +8,16 @@
   color: #fff;
   border-radius: 10rem;
   font-weight: 600;
-  font-size: 15px;
-  padding: 11px;
-  padding-right: 14px;
+  font-size: 13px;
+  padding: 6px;
+  padding-right: 20px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  background-color: #0055e9;
-  border: 1px solid #b7c6ff;
+  background-color: #0a409f;
+  border: 1px solid #cecece;
   transition: background-color .3s;
-  }
+}
   
   .button__iconwrapper {
     flex-shrink: 0;
@@ -38,10 +38,11 @@
   }
   
   .button:hover .button__icon-wrapper {
-    color: #000;
+    fill: #0e0e0e;
   }
   
   .button__iconsvgcopy {
+    fill: #101010;
     position: absolute;
     transform: translate(-150%, 150%);
   }

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export const Footer = ()=>{
     return(
         <footer className="footer">
@@ -7,9 +9,7 @@ export const Footer = ()=>{
     
             <div className="footer-brand-wrapper">
     
-              <a href="./index.html" className="logo">
-                <img src="/logo.svg" alt="Filmlane logo"/>
-              </a>
+               <Image className="footer-logo-top" height={200} width={200} alt="Footer logo" src={"/slogan-logo.png"}  ></Image>            
     
               <ul className="footer-list">
     
@@ -58,34 +58,7 @@ export const Footer = ()=>{
                 <li>
                   <a href="#" className="quicklink-link">Privacy</a>
                 </li>
-    
-              </ul>
-    
-              <ul className="social-list">
-    
-                <li>
-                  <a href="#" className="social-link">
-                    {/* <ion-icon name="logo-facebook"></ion-icon> */}
-                  </a>
-                </li>
-    
-                <li>
-                  <a href="#" className="social-link">
-                    {/* <ion-icon name="logo-twitter"></ion-icon> */}
-                  </a>
-                </li>
-    
-                <li>
-                  <a href="#" className="social-link">
-                    {/* <ion-icon name="logo-pinterest"></ion-icon> */}
-                  </a>
-                </li>
-    
-                <li>
-                  <a href="#" className="social-link">
-                    {/* <ion-icon name="logo-linkedin"></ion-icon> */}
-                  </a>
-                </li>
+
     
               </ul>
     
@@ -100,9 +73,7 @@ export const Footer = ()=>{
             <p className="copyright">
               &copy; 2022 <a href="#">codewithsadee</a>. All Rights Reserved
             </p>
-    
-            <img src="/footer-bottom-img.png" alt="Online banking companies logo" className="footer-bottom-img"/>
-    
+
           </div>
         </div>
     
