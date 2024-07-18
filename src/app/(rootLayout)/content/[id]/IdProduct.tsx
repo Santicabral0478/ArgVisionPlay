@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 
 export const IdProducts = ({ params }: { params : any}) => {
 
@@ -15,9 +17,9 @@ export const IdProducts = ({ params }: { params : any}) => {
 
             <img src="/movie-4.png" alt="Free guy movie poster"/>
 
-            <button className="play-btn">
-              {/* <ion-icon name="play-circle-outline"></ion-icon> */}
-            </button>
+          <button className="button-play-movie">
+            <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="26px"><path d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z" fill="currentColor"></path></svg>
+          </button>
 
           </figure>
 
@@ -74,22 +76,19 @@ export const IdProducts = ({ params }: { params : any}) => {
             <div className="details-actions">
 
               <button className="share">
-                {/* <ion-icon name="share-social"></ion-icon> */}
-
-                <span>Share</span>
+                <Image width={100} height={100} alt="logo star plus" src={"/starplus.png"}></Image>
               </button>
 
               <div className="title-wrapper">
                 <p className="title">Prime Video</p>
 
                 <p className="text">Streaming Channels</p>
-              </div>
 
               <button className="btn btn-primary">
-                {/* <ion-icon name="play"></ion-icon> */}
-
                 <span>Watch Now</span>
               </button>
+              </div>
+
 
             </div>
 
