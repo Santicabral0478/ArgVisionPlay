@@ -25,8 +25,6 @@ export const IdProducts = ({ params }: { params : any}) => {
 
           <div className="movie-detail-content">
 
-            <p className="detail-subtitle">New Episodes</p>
-
             <h1 className="h1 detail-title">
               Free <strong>Guy</strong>
             </h1>
