@@ -1910,6 +1910,16 @@ background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(59,59,59,1) 15%, rgba(
   flex-direction: column;
 }
 
+.link-reset-password {
+  color: #e1e1e1;
+  font-size: 16px;
+}
+
+.flex-button-container {
+  width: 100%;
+  display: flex;
+  gap: 1.3rem;
+}
 
 /*-----------------------------------*\
  * #LOGIN form REGISTER
@@ -1925,7 +1935,7 @@ background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(59,59,59,1) 15%, rgba(
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  margin-block: 6rem 10rem;
+  margin-block: 5rem;
 }
 
 .log-title-container img {
@@ -1933,9 +1943,9 @@ background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(59,59,59,1) 15%, rgba(
   height: auto;
 }
 
-.log-title-container h1{
+.log-title-container h1 {
   font-size: 2rem;
-  color: #fff;
+  color: #ffffffdb;
 }
 
 .form-container {
@@ -1972,7 +1982,7 @@ background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(59,59,59,1) 15%, rgba(
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.7rem;
   margin-bottom: 15px;
 }
 
@@ -1988,12 +1998,13 @@ background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(59,59,59,1) 15%, rgba(
 }
 
 .form-btn {
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   gap: 20px;
-  padding: 16px;
+  padding: 13px;
   border-radius: 10rem;
   outline: 0 !important;
   background: #087107;
@@ -2002,12 +2013,13 @@ background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(59,59,59,1) 15%, rgba(
 }
 
 .form-btn-register{
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   gap: 20px;
-  padding: 16px;
+  padding: 13px;
   border-radius: 10rem;
   outline: 0 !important;
   background: #0b4c92;
