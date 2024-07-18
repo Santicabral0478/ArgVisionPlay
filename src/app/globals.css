@@ -1081,11 +1081,31 @@ body.active { overflow: hidden; }
 \*-----------------------------------*/
 
 .movie-detail {
-  background: url("/movie-detail-bg.png") no-repeat;
+  position: relative;
+  background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   padding-top: 160px;
   padding-bottom: var(--section-padding);
+}
+
+.gradient-movie-detail{
+  position: absolute;
+  position: absolute;
+    background: rgb(1, 6, 16);
+    background: linear-gradient(0deg, rgb(1 6 16) 15%, rgb(1 6 16 / 97%) 21%, rgba(1, 6, 16, 0.904) 30%, rgb(1 6 16 / 77%) 45%, rgba(1, 6, 16, 0.838) 60%, rgba(1, 6, 16, 0.928) 100%);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.movie-detail-content{
+  position: relative;
 }
 
 .movie-detail-banner {
