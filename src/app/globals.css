@@ -1928,6 +1928,7 @@ background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(59,59,59,1) 15%, rgba(
 .select-avatar-list{
   width: 100%;
   display: flex;
+  gap: 9px;
   flex-direction: row;
   justify-content: space-between;
   max-width: 400px;
@@ -1935,17 +1936,17 @@ background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(59,59,59,1) 15%, rgba(
 }
 
 .select-avatar-list .avatar-cont{
-  width: 5rem;
-  height: 5rem;
+  width: 30%;
+  aspect-ratio: 1;
   background-color: #333333;
   border-radius: 50%;
 }
 
-.login{
+.login {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px 30px;
+  padding: 15px 18px;
 }
 
 .log-title-container {
