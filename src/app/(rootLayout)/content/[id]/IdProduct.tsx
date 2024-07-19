@@ -1,10 +1,27 @@
 "use client";
-
+import { useState, useEffect, useDebugValue } from "react";
 import Image from "next/image";
-
+import { useUserContext } from "@/components/context";
+import SecLoader from "@/components/SecLoader";
 
 export const IdProducts = ({ params }: { params : any}) => {
+  const { token, idUser } = useUserContext();
+  const [isLoading, setIsLoading] = useState(true);
 
+  useEffect(() => {
+    if (!token || !idUser) {
+      window.location.href = '/login';
+    } else {
+      setIsLoading(false);
+    }
+  }, [token, idUser]);
+
+  if (isLoading) {
+    return (
+        <SecLoader/>
+    );
+  }
+  
     return (
        <>
 
