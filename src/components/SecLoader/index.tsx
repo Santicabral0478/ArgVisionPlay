@@ -16,7 +16,6 @@ export const SecLoader = ()=>{
                     <div className="bar11"></div>
                     <div className="bar12"></div>
                 </div>
-                <span>Cargando...</span>
             </div>
         </section>
     )
