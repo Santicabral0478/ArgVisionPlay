@@ -133,19 +133,17 @@ export const IdProducts = ({ params }: { params : any}) => {
           <div className="meta-wrapper">
 
             <div className="badge-wrapper">
-              <div className="badge badge-fill">PG 13</div>
+              <div className="badge badge-fill">{content.classification}</div>
 
               <div className="badge badge-outline">HD</div>
             </div>
 
             <div className="ganre-wrapper">
-              <a href="#">Comedy,</a>
-
-              <a href="#">Action,</a>
-
-              <a href="#">Adventure,</a>
-
-              <a href="#">Science Fiction</a>
+              {
+                content.genre.map((genre)=>(
+                  <a>{genre}</a>
+                ))
+              }
             </div>
 
             <div className="date-time">
@@ -153,13 +151,13 @@ export const IdProducts = ({ params }: { params : any}) => {
               <div>
                 {/* <ion-icon name="calendar-outline"></ion-icon> */}
 
-                <time >2021</time>
+                <time >{content.year}</time>
               </div>
 
               <div>
                 {/* <ion-icon name="time-outline"></ion-icon> */}
 
-                <time >115 min</time>
+                <time>{content.duration}</time>
               </div>
 
             </div>
@@ -167,9 +165,7 @@ export const IdProducts = ({ params }: { params : any}) => {
           </div>
 
           <p className="storyline">
-            A bank teller called Guy realizes he is a background character in an open world video game called Free
-            City that will
-            soon go offline.
+            {content.description}
           </p>
 
           <div className="details-actions">

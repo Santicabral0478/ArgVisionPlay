@@ -3,11 +3,97 @@ import { useEffect, useState } from "react";
 import { useUserContext } from "@/components/context";
 import SecLoader from "@/components/SecLoader";
 import { GetProfileData } from "../../../../utils/GetProfileData/GetProfileData";
+import { changeProfileData } from "../../../../utils/ChangeProfileData/ChangeProfileData";
 
-const Profile = () => {
+export const Profile = () => {
   const { token, clearToken, idUser, clearIdUser } = useUserContext();
   const [isLoading, setIsLoading] = useState(true);
   const [userData, setUserData] = useState<any>({});
+  const [name, setName] = useState('');
+  const [genre, setGenre] = useState('');
+  const [phone, setPhone] = useState('');
+  const [avatar, setAvatar] = useState('');
+  const [error, setError] = useState('');
+  const [alertOp, setAlertOp] = useState("");
+  const [isModalActive, setIsModalActive] = useState("");
+  const [isModalEditActive, setIsModalEditActive] = useState("");
+  const userId = idUser;
+  const avatar1 = "urlavatar1";
+  const avatar2 = "urlavatar2";
+  const avatar3 = "urlavatar3";
+  const avatar4 = "urlavatar4";
+
+  const alertOpTime = ()=>{
+    setAlertOp("active-alert")
+    setTimeout(()=>{
+        setAlertOp("")
+    }, 5000)
+  }
+
+  const activeModalAvatar = ()=>{
+    setIsModalActive("modal-active-edit")
+    document.body.style.overflow = 'hidden';
+  }
+
+  const activeModalEditUser = ()=>{
+    setIsModalEditActive("modal-active-edit");
+    document.body.style.overflow = 'hidden';
+  }
+
+  const closeModalAvatar = ()=>{
+    setIsModalActive("")
+    document.body.style.overflow = 'auto';    
+  }
+
+  const closeModalActiveUser = ()=>{
+    setIsModalEditActive("")
+    document.body.style.overflow = 'auto';
+  }
+  
+  const validateProfileData = () => {
+    if (name && name.trim().split(' ').length < 2) {
+      return 'El nombre debe tener al menos 2 palabras.';
+    }
+    if (genre && (genre !== 'male' && genre !== 'female')) {
+      return 'El género debe ser "masculino" o "femenino".';
+    }
+    if (phone && (phone.length < 10 || phone.length > 15)) {
+      return 'El teléfono debe tener entre 10 y 15 dígitos.';
+    }
+    return '';
+  };
+
+  const handleUpdateProfile = async () => {
+    const validationError = validateProfileData();
+    if (validationError) {
+      setError(validationError);
+      alertOpTime()
+      return;
+    }
+    
+    const editedData: any = {
+      ...(userId && {userId}),
+      ...(name && { name }),
+      ...(genre && { genre }),
+      ...(phone && { phone }),
+      ...(avatar && { avatar }),
+    };
+
+    try {
+      const updatedProfile = await changeProfileData(editedData, token);
+      console.log('Perfil actualizado con éxito', updatedProfile);
+      setUserData(updatedProfile);
+      setError('');
+      setAlertOp("");
+      setIsModalActive("")
+      setIsModalEditActive("")
+      document.body.style.overflow = 'auto';
+    } catch (error: any) {
+      console.error('Error al actualizar el perfil:', error.message);
+      alertOpTime()
+      setError(error.message);
+    }
+  };
 
   const handleLogOut = () => {
     clearIdUser();
@@ -27,9 +113,11 @@ const Profile = () => {
     const fetchUserData = async () => {
       try {
         const data = await GetProfileData(idUser, token);
-        console.log(data);
         setUserData(data);
-        
+        setName(data.name);
+        setGenre(data.genre);
+        setPhone(data.phone);
+        setAvatar(data.avatar);
       } catch (error) {
         console.error("Error al obtener los datos del perfil:", error);
       }
@@ -51,9 +139,8 @@ const Profile = () => {
         <div className="edit-flex-container">
           <div className="left-container-profile">
             <div className="avatar-inf-container">
-              <div className="avatar-container">
+              <div onClick={activeModalAvatar} className="avatar-container">
                 {/* <Image src={"/"} ></Image> */}
-                : )
                 <div className="edit-container">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1 0 32c0 8.8 7.2 16 16 16l32 0zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"/></svg>
                 </div>
@@ -80,7 +167,7 @@ const Profile = () => {
             </div>
 
             <div className="edit-prof-cont">
-              <button className="edit-profile-btn">
+              <button onClick={activeModalEditUser} className="edit-profile-btn">
                 <div>
                   <div className="pencil"></div>
                   <div className="folder">
@@ -158,7 +245,121 @@ const Profile = () => {
           </div>
         </div>
       </div>
+      
+      <article className={`change-avatar-modal ${isModalActive}`}>
+        <div className="update-avatar">
+          <ul className="avatar-change">
+            <li className="avatar-li">
+              <button onClick={()=>{
+                setAvatar(avatar1)
+              }}>
+                Avatar1
+              </button>
+            </li>
+            <li className="avatar-li">
+              <button onClick={()=>{
+                setAvatar(avatar2)
+              }}>
+                Avatar2
+              </button>
+            </li>
+            <li className="avatar-li">
+              <button onClick={()=>{
+                setAvatar(avatar3)
+              }}>
+                Avatar3
+              </button>
+            </li>
+            <li className="avatar-li">
+              <button onClick={()=>{
+                setAvatar(avatar4)
+              }}>
+                Avatar4
+              </button>
+            </li>
+          </ul>
+          <div className="button-conainer-avatar">
+            <button className="submit-avatar" onClick={handleUpdateProfile}>
+              Update Avatar
+            </button>
+            <button onClick={closeModalAvatar} className="cancel-change-avatar">
+              cancel
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <article className={`edit-profile-modal ${isModalEditActive}`}>
+        <div className="edit-profile-container">
+          <h2 className="edit-profile-info">
+            Edit Profile
+          </h2>
+          <div className={`alert-container ${alertOp}`}>
+                  <div className="error-alert">
+                      <div className="alert-content">
+                      <div className="icon-container">
+                          <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="1.5"
+                          stroke="#d65563"
+                          className="icon"
+                          >
+                          <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z"
+                          ></path>
+                          </svg>
+                      </div>
+                      <div className="text-container">
+                          {error && <p style={{color: "#d65563"}} className="error-message">{error}</p>}
+                          <p className="description">Error el formulario</p>
+                      </div>
+                      </div>
+                  </div>
+          </div>
+
+          <input
+              type="email"
+              className="input"
+              placeholder={userData.name}
+              onChange={(e) => setName(e.target.value)}
+            />
+
+            <input
+              type="email"
+              className="input"
+              placeholder={userData.phone}
+              onChange={(e) => setPhone(e.target.value)}
+            />
+
+            <select 
+              className="input" 
+              value={genre} 
+              onChange={(e) => setGenre(e.target.value)}
+            >
+              <option value="">Género</option>
+              <option value="male">Masculino</option>
+              <option value="female">Femenino</option>
+            </select>
+
+          <div className="button-conainer-avatar">
+            <button onClick={handleUpdateProfile} type="submit" className="form-btn-register">
+              <span>Actualizar</span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                  <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"/>
+              </svg>
+            </button>
+            <button onClick={closeModalActiveUser} className="cancel-change-avatar">
+              Cancel
+            </button>
+          </div>
+        </div>
+      </article>
     </section>
+
   );
 };
 

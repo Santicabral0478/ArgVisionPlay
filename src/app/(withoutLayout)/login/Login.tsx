@@ -23,7 +23,7 @@ const Login = () => {
     setTimeout(()=>{
         setAlertOp("")
     }, 5000)
-}
+  }
 
 
   const validateEmail = (email: string) => {

@@ -134,7 +134,7 @@ export const Header = ()=>{
     
               <li>
                  <Link onClick={handleOnCloseSideNavbar} className="navbar-link" href={""}>
-                    Homne
+                    Home
                  </Link>
               </li>
     
