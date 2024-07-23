@@ -3,10 +3,10 @@ import { useState, useEffect, useDebugValue, useRef } from "react";
 import Image from "next/image";
 import SecLoader from "@/components/SecLoader";
 import { IContent } from "../Content";
-import videojs from "video.js";
 import "video.js/dist/video-js.css";
 import { GetContentSpec } from "../../../../../utils/GetContentSpec/GetContentSpec";
 import { useUserContext } from "@/components/context";
+import { AddToFavorite } from "../../../../../utils/AddToFavorite/AddToFavorite";
 
 export const IdProducts = ({ params }: { params : any}) => {
   const { token, idUser } = useUserContext();
@@ -18,7 +18,9 @@ export const IdProducts = ({ params }: { params : any}) => {
   const playerRef = useRef<any>(null);
   const [playerOcc, setPlayerOcc] = useState("");
   const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
+  const [isConfirmAdd, setIsConfirmAdd] = useState(false);
   const [controls, setControls] = useState(true)
+  const userId = idUser;
 
   const handlePause = () => {
     if (timeoutId) {
@@ -33,6 +35,16 @@ export const IdProducts = ({ params }: { params : any}) => {
     }, 1000);
     setTimeoutId(id);
   };
+
+  const AddContentToFavorite = async(movieId: string)=>{
+    try{
+      const confirmAdd = await AddToFavorite(userId, movieId, token);
+      setIsConfirmAdd(confirmAdd);
+    } catch (err){
+      console.log(err);
+      setIsConfirmAdd(false);
+    }
+  }
 
   const handleClosePlayer = ()=>{
     setPlayerOcc("")
@@ -170,18 +182,26 @@ export const IdProducts = ({ params }: { params : any}) => {
 
           <div className="details-actions">
 
-            <button className="share">
-              <Image width={100} height={100} alt="logo star plus" src={"/starplus.png"}></Image>
-            </button>
-
             <div className="title-wrapper">
-              <p className="title">Prime Video</p>
+              <p className="title">Favoritos</p>
 
-              <p className="text">Streaming Channels</p>
+              <p className="text">Agregar a tu lista de favoritos</p>
 
-            <button className="btn btn-primary">
-              <span>Watch Now</span>
-            </button>
+              {
+                !isConfirmAdd ? (
+                  <button onClick={()=>{
+                    AddContentToFavorite(content._id)
+                  }} className="btn btn-primary">
+                    <span>Add to Favorite</span>
+                    <svg width={"10px"} fill="#f0f0f0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/></svg>
+                  </button>
+                ):(
+                  <div className="added-favorite-cont">
+                    <span>Agregado</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>
+                  </div>
+                )
+              }
             </div>
 
 
