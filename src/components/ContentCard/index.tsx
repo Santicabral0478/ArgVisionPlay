@@ -12,7 +12,7 @@ export const ContentCard: React.FC<ContentCardProps> = ({ content }) => {
       <Link href={`content/${content._id}`}>
         <div className="movie-card">
           <figure className="card-banner">
-            <Image width={100} height={200} src={content.poster}  alt="ccc" ></Image>
+            <Image width={280} height={280} src={content.poster}  alt="ccc" ></Image>
           </figure>
           <div className="title-wrapper">
             <h3 className="card-title">{content.title}</h3>

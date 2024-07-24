@@ -12,7 +12,6 @@ export default function Home() {
       <Upcoming/>
       <ExtraSect/>
       <TopRated/>
-      <Series/>
       <Cta/>
     </>
   );

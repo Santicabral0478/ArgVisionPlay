@@ -344,14 +344,14 @@ body.active { overflow: hidden; }
 
 /* extra */
 
-.added-favorite-cont{
+.added-favorite-cont {
   display: flex;
   gap: 8px;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   padding: 8px 27px;
-  background-color: #097107ad;
+  background-color: #074906ad;
   border-radius: 10rem;
   color: #4cd54a;
   font-size: 14px;
@@ -646,7 +646,6 @@ body.active { overflow: hidden; }
 \*-----------------------------------*/
 
 .service {
-  background: url("/service-bg.jpg") no-repeat;
   background-size: cover;
   background-position: center;
   padding-block: 2rem;
@@ -1001,7 +1000,6 @@ body.active { overflow: hidden; }
 }
 
 .footer-top {
-  background: url(/footer-bg.jpg) no-repeat;
   background-size: cover;
   background-position: center;
   padding-top: 40px;
@@ -3546,4 +3544,21 @@ PLAYER
 .gray-text{
   font-size: 16px;
   color: #797979;
+}
+
+/* LOADER FOR CONTENT */
+
+.title-for-loader{
+  background: #2e303e;
+  width: 20rem;
+  height: 2.5rem;
+  border-radius: 5px;
+  margin-bottom: 3rem;
+}
+
+.subtitle-for-loader{
+  background: #2e303e;
+  width: 8rem;
+  border-radius: 5px;
+  height: 1.2rem;
 }
