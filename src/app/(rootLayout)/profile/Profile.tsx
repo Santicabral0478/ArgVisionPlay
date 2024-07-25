@@ -128,6 +128,10 @@ export const Profile = () => {
     }
   }, [idUser, token]);
 
+  if(!userData){
+    return <SecLoader/>
+  }
+
   if (isLoading) {
     return <SecLoader/>;
   }
