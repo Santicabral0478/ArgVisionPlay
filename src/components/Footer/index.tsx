@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export const Footer = ()=>{
     return(
@@ -71,7 +72,7 @@ export const Footer = ()=>{
           <div className="container">
     
             <p className="copyright">
-              &copy; 2022 <a href="#">codewithsadee</a>. All Rights Reserved
+              &copy; 2024 <a>ArgVision</a>. All Rights Reserved. by <Link href={"https://santiagocabral.vercel.app"}>Santiago Cabral</Link>
             </p>
 
           </div>

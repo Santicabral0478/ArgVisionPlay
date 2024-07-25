@@ -1,15 +1,15 @@
 import { IContent } from "@/app/(rootLayout)/content/Content";
 import Image from "next/image";
-import Link from "next/link";
 
 interface ContentCardProps {
   content: IContent;
 }
 
 export const ContentCard: React.FC<ContentCardProps> = ({ content }) => {
+
   return (
     <li key={content._id}>
-      <Link href={`content/${content._id}`}>
+      <a href={`/content/${content._id}`}>
         <div className="movie-card">
           <figure className="card-banner">
             <Image width={280} height={280} src={content.poster}  alt="ccc" ></Image>
@@ -28,7 +28,7 @@ export const ContentCard: React.FC<ContentCardProps> = ({ content }) => {
             </div>
           </div>
         </div>
-      </Link>
+      </a>
     </li>
   );
 };

@@ -2251,7 +2251,7 @@ PLAYER
   left: -1px;
   width: calc(100% + 1px);
   height: 100%;
-  background: linear-gradient(90deg, rgba(1, 6, 16, 0.961) 33%, rgba(1, 6, 16, 0.8491771708683473) 56%, rgba(1, 6, 16, 0.439) 82%, rgba(1, 6, 16, 0.061) 100%);
+  background: linear-gradient(90deg, rgb(1 6 16 / 81%) 33%, rgb(1 6 16 / 63%) 56%, rgb(1 6 16 / 37%) 82%, rgba(1, 6, 16, 0.061) 100%);
   margin-bottom: 2rem;
   transition: all .4s ease-in;
   opacity: 0;
@@ -3134,7 +3134,7 @@ PLAYER
 }
 
 .container-pause h2{
-  font-size: 3rem;
+  font-size: 2.5rem;
 }
 
 .container-pause p {
@@ -3280,7 +3280,7 @@ PLAYER
 /* PLAYER */
 
 .container-pause h2 {
-  font-size: 4.5rem;
+  font-size: 3rem;
 }
 
 .container-pause p {
@@ -3561,4 +3561,8 @@ PLAYER
   width: 8rem;
   border-radius: 5px;
   height: 1.2rem;
+}
+
+.hidden-special{
+  display: none;
 }

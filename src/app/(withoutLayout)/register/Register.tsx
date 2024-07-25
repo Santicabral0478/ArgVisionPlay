@@ -257,7 +257,6 @@ const Register = () => {
                                 <option value="femenino">Femenino</option>
                             </select>
                         </div>
-                        <Link className="link-reset-password" href={"/resetpassword"}>Olvidé mi contraseña</Link>
                         <div className="sep-gradient"></div>
                         <div className="flex-button-container">
                             <button type="submit" className="form-btn-register">

@@ -16,7 +16,7 @@ export async function GetContentByRate() {
       }
   
       const contentDataRated = await response.json();
-      return contentDataRated;
+      return contentDataRated.slice(0, 5);
   
     } catch (error: any) {
       throw new Error(error.message || 'Error al obtener el contenido');

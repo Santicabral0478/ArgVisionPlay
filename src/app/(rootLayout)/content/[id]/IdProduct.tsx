@@ -7,6 +7,9 @@ import "video.js/dist/video-js.css";
 import { GetContentSpec } from "../../../../../utils/GetContentSpec/GetContentSpec";
 import { useUserContext } from "@/components/context";
 import { AddToFavorite } from "../../../../../utils/AddToFavorite/AddToFavorite";
+import { TopRated } from "@/components/TopRated";
+import { GetContentByRate } from "../../../../../utils/GetContentByRate/GetContentByRate";
+import ContentCard from "@/components/ContentCard";
 
 export const IdProducts = ({ params }: { params : any}) => {
   const { token, idUser } = useUserContext();
@@ -21,6 +24,21 @@ export const IdProducts = ({ params }: { params : any}) => {
   const [isConfirmAdd, setIsConfirmAdd] = useState(false);
   const [controls, setControls] = useState(true)
   const userId = idUser;
+
+  const [contentByRate, setContentByRate] = useState<IContent[]>()
+
+  useEffect(()=>{
+    const fetchDataByRate= async ()=>{
+      try{
+        const dataByRate = await GetContentByRate();
+        setContentByRate(dataByRate);
+      } catch(error){
+        console.log(error);
+      }
+    }
+
+    fetchDataByRate();
+  }, [])
 
   const handlePause = () => {
     if (timeoutId) {
@@ -110,7 +128,7 @@ export const IdProducts = ({ params }: { params : any}) => {
     else setPlayer(false)
   }
 
-  if (!content || isLoading) {
+  if (!content || isLoading || !contentByRate) {
     return <SecLoader />; 
   }
 
@@ -254,7 +272,26 @@ export const IdProducts = ({ params }: { params : any}) => {
           </div>
         </div>
       </section>
+      
       )}
+
+      <section className="top-rated">
+        <div className="container">
+
+          <h2 className="h2 section-title">Top 5 rated</h2>
+
+          <ul className="movies-list  has-scrollbar"> 
+            {
+              contentByRate.map((content)=>{
+                return(
+                  <ContentCard content={content}/>
+                )
+              })
+            }
+          </ul>
+
+        </div>
+      </section>
        </>
     );
 };
