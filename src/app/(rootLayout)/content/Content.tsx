@@ -48,7 +48,7 @@ export const Content = () => {
         setIsHiddenSpecial("hidden-special");
       }
     } catch (error) {
-      console.log(error);
+      throw error
     } finally {
       setIsLoading(false); 
     }
@@ -58,7 +58,6 @@ export const Content = () => {
     const fetchContentData = async () => {
       try {
         const data: IContent[] = await GetAllContent();
-        console.log("Datos recibidos:", data);
         setAllContent(data);
       } catch (error) {
         console.error("Error al obtener los datos del perfil:", error);

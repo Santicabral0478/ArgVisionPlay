@@ -1,4 +1,3 @@
-// http://localhost:3001/content/byrate
 
 export async function GetContentByRate() {
     const apiUrl = process.env.NEXT_PUBLIC_API_URL;

@@ -19,20 +19,17 @@ export const Header = ()=>{
 
       lastScrollY.current = currentScrollY;
 
-      // Clear the previous timeout
       if (scrollTimeout.current) {
         clearTimeout(scrollTimeout.current);
       }
 
-      // Set a new timeout
       scrollTimeout.current = setTimeout(() => {
         setIsOcc("")
-      }, 1000); // 200ms after the user stops scrolling
+      }, 1000); 
     };
 
     window.addEventListener('scroll', handleScroll);
 
-    // Cleanup function to remove the event listener and clear the timeout
     return () => {
       window.removeEventListener('scroll', handleScroll);
       if (scrollTimeout.current) {

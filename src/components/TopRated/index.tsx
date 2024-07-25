@@ -14,7 +14,7 @@ export const TopRated = ()=>{
         const dataByRate = await GetContentByRate();
         setContentByRate(dataByRate);
       } catch(error){
-        console.log(error);
+        throw error
       }
     }
 

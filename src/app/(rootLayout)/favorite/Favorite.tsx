@@ -27,7 +27,6 @@ export const Favorite = () => {
         const fetchContentData = async () => {
             try {
                 const data: IContent[] = await GetFavoriteProfile(userId, token);
-                console.log("Datos recibidos:", data);
                 setAllContentFavorite(data);
             } catch (error) {
                 console.error("Error al obtener los datos del perfil:", error);

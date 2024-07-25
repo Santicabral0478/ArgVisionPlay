@@ -33,7 +33,7 @@ export const IdProducts = ({ params }: { params : any}) => {
         const dataByRate = await GetContentByRate();
         setContentByRate(dataByRate);
       } catch(error){
-        console.log(error);
+        throw error
       }
     }
 
@@ -59,7 +59,6 @@ export const IdProducts = ({ params }: { params : any}) => {
       const confirmAdd = await AddToFavorite(userId, movieId, token);
       setIsConfirmAdd(confirmAdd);
     } catch (err){
-      console.log(err);
       setIsConfirmAdd(false);
     }
   }
@@ -97,7 +96,6 @@ export const IdProducts = ({ params }: { params : any}) => {
     const fetchContentData = async () => {
       try {
         const data: IContent = await GetContentSpec(params.id, token);
-        console.log("Datos recibidos:", data);
         setContent(data);
       } catch (error) {
         console.error("Error al obtener los datos del perfil:", error);

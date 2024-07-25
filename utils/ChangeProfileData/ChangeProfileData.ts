@@ -8,7 +8,6 @@ interface ProfileData {
 }
 
 export const changeProfileData = async (profileData: ProfileData, token: string | undefined) => {
-  console.log(profileData);
   try {
     const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/me`, {
       method: 'PUT',

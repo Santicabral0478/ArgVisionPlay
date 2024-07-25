@@ -18,7 +18,6 @@ export const GetContentByCategory = async (category: string): Promise<IContent[]
 
         const dataCategory = await response.json()
         const dataCategoryFilter = dataCategory.sort((a: IContent, b: IContent)=> b.year - a.year).slice(0, 5); 
-        console.log(dataCategoryFilter);
         return dataCategoryFilter;
 
     }catch (error) {

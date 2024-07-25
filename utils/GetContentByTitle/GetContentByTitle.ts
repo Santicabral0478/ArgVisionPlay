@@ -16,6 +16,6 @@ export const GetContentByTitle = async (title: string | undefined)=>{
         const contentData = await response.json()
         return contentData;
     } catch(error){
-        console.log(error);
+        throw error
     }
 }

@@ -3,12 +3,12 @@ export async function GetProfileData(userId: string | undefined, token: string |
   
     try {
       const response = await fetch(`${apiUrl}/users/me`, {
-        method: 'POST', // Cambiado a 'POST'
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`,
         },
-        body: JSON.stringify({ userId }), // userId en el cuerpo de la solicitud
+        body: JSON.stringify({ userId }),
       });
   
       if (!response.ok) {
