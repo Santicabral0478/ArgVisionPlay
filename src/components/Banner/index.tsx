@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image";
+import Link from "next/link";
 
 const Banner = () => {
 
@@ -16,30 +17,28 @@ const Banner = () => {
       <div className="hero-content">
 
         <h1 className="h1 hero-title">
-          Unlimited <strong>Movie</strong>, TVs Shows, & More.
+        <strong>Discover</strong>, Watch, Enjoy - Your Way,
         </h1>
 
         <div className="meta-wrapper">
 
           <div className="badge-wrapper">
-            <div className="badge badge-fill">PG 18</div>
-
-            <div className="badge badge-outline">HD</div>
+            <div className="badge badge-fill">All Content</div>
           </div>
 
           <div className="ganre-wrapper">
-            <a href="#">Romance,</a>
+            <a>Movies</a>
 
-            <a href="#">Drama</a>
+            <a>Series</a>
           </div>
 
         </div>
 
-        <button className="btn btn-primary">
-          {/* <ion-icon name="play"></ion-icon> */}
-
-          <span>Watch now</span>
-        </button>
+        <Link href={"/content"}>
+          <button className="btn btn-primary">
+            <span>View All</span>
+          </button>
+        </Link>
 
       </div>
 

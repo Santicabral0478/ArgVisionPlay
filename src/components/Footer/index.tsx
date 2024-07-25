@@ -15,56 +15,27 @@ export const Footer = ()=>{
               <ul className="footer-list">
     
                 <li>
-                  <a href="./index.html" className="footer-link">Home</a>
+                  <a href="/" className="footer-link">Home</a>
                 </li>
     
                 <li>
-                  <a href="#" className="footer-link">Movie</a>
+                  <a href="/content" className="footer-link">All Content</a>
                 </li>
     
                 <li>
-                  <a href="#" className="footer-link">TV Show</a>
+                  <a href="/profile" className="footer-link">My Profile</a>
                 </li>
     
                 <li>
-                  <a href="#" className="footer-link">Web Series</a>
+                  <a href="/favorite" className="footer-link">Favorites list</a>
                 </li>
-    
-                <li>
-                  <a href="#" className="footer-link">Pricing</a>
-                </li>
-    
+
               </ul>
     
             </div>
     
             <div className="divider"></div>
-    
-            <div className="quicklink-wrapper">
-    
-              <ul className="quicklink-list">
-    
-                <li>
-                  <a href="#" className="quicklink-link">Faq</a>
-                </li>
-    
-                <li>
-                  <a href="#" className="quicklink-link">Help center</a>
-                </li>
-    
-                <li>
-                  <a href="#" className="quicklink-link">Terms of use</a>
-                </li>
-    
-                <li>
-                  <a href="#" className="quicklink-link">Privacy</a>
-                </li>
-
-    
-              </ul>
-    
-            </div>
-    
+  
           </div>
         </div>
     
@@ -72,7 +43,7 @@ export const Footer = ()=>{
           <div className="container">
     
             <p className="copyright">
-              &copy; 2024 <a>ArgVision</a>. All Rights Reserved. by <Link href={"https://santiagocabral.vercel.app"}>Santiago Cabral</Link>
+              &copy; 2024 <a>ArgVision</a>. All Rights Reserved. by <Link href={"https://greenstudios.vercel.app"}>Green Studios</Link>
             </p>
 
           </div>

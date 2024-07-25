@@ -37,13 +37,13 @@ const Login = () => {
 
     if (!validateEmail(email)) {
       alertOpTime()
-      setError('Email no válido');
+      setError('Invalid email');
       return;
     }
 
     if (password.length < 6) {
       alertOpTime()
-      setError('La contraseña debe tener al menos 6 caracteres');
+      setError('The password must be at least 6 characters long');
       return;
     }
 
@@ -60,7 +60,7 @@ const Login = () => {
     <section className="login">
       <div className="form-container">
         <div className="log-title-container">
-          <h1>Bienvenido</h1>
+          <h1>Welcome to</h1>
           <Image width={100} height={100} alt="Image Login" src={"/responsivelogo.png"}></Image>
         </div>
         <div className={`alert-container ${alertOp}`}>
@@ -84,7 +84,7 @@ const Login = () => {
                 </div>
                 <div className="text-container">
                     {error && <p className="error-message">{error}</p>}
-                    <p className="description">Error el formulario</p>
+                    <p className="description">Form error...</p>
                 </div>
                 </div>
             </div>
@@ -114,7 +114,7 @@ const Login = () => {
               }
             </button>
           </div>
-          <Link href={"/resetpassword"} className="link-reset-password">Olvidé mi contraseña</Link>
+          <Link href={"/resetpassword"} className="link-reset-password">I forgot my password</Link>
           <div className="sep-gradient"></div>
           <div className="flex-button-container">
             <button type="submit" className="form-btn">
@@ -123,14 +123,14 @@ const Login = () => {
             </button>
             <Link href={"/register"}>
                 <button className="form-btn-register">
-                  <span>Register</span>
+                  <span>I'm New</span>
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"/></svg>
                 </button>
             </Link>
           </div>
           <Link href={"/"}>
             <button className="form-btn-home">
-              <span>Home</span>
+              <span>Go home</span>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 .7 160.2c0 2.7-.2 5.4-.5 8.1l0 16.2c0 22.1-17.9 40-40 40l-16 0c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1L416 512l-24 0c-22.1 0-40-17.9-40-40l0-24 0-64c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32 14.3-32 32l0 64 0 24c0 22.1-17.9 40-40 40l-24 0-31.9 0c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2l-16 0c-22.1 0-40-17.9-40-40l0-112c0-.9 0-1.9 .1-2.8l0-69.7-32 0c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
             </button>
           </Link>

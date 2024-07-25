@@ -15,6 +15,11 @@ export default function RootLayout({
   return (
     <UserProvider>
       <html lang="en">
+        <head>
+          <meta property="og:image" content="/responsivelogo.ico"/>
+          <link rel="icon" href="/responsivelogo.ico" />
+          <title>ArgVision</title>
+        </head>
         <body className={inter.className}>
 
           <Header/>

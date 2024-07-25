@@ -257,7 +257,7 @@ export const IdProducts = ({ params }: { params : any}) => {
                 <h2>{content.title}</h2>
                 <p>{content.description}</p>
                 <div className="badge-wrapper">
-                <div className="badge badge-fill">PG 13</div>
+                <div className="badge badge-fill">{content.classification}</div>
 
                 <div className="badge badge-outline">HD</div>
                 </div>
@@ -275,7 +275,7 @@ export const IdProducts = ({ params }: { params : any}) => {
       
       )}
 
-      <section className="top-rated">
+      <section style={{backgroundColor: "#010610"}} className="top-rated">
         <div className="container">
 
           <h2 className="h2 section-title">Top 5 rated</h2>

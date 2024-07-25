@@ -11,10 +11,10 @@ export const Cta = ()=>{
         <div className="container">
 
           <div className="title-wrapper">
-            <h2 className="cta-title">Trial start first 30 days.</h2>
+            <h2 className="cta-title">Your vision, Your entertainment</h2>
 
             <p className="cta-text">
-              Enter your email to create or restart your membership.
+              Immerse yourself in your vision and enjoy every moment of your entertainment.
             </p>
           </div>
         </div>

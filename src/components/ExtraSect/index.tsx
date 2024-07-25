@@ -36,9 +36,9 @@ export const ExtraSect = ()=>{
 
 
             <div className="service-btn-fancy">
-              <Link className="fancy-service " href={"/"}>
+              <Link className="fancy-service " href={"/content"}>
                 <span className="top-key-service"></span>
-                <span className="text-service">Buy Tickets</span>
+                <span className="text-service">Discover All</span>
                 <span className="bottom-key-1-service"></span>
                 <span className="bottom-key-2-service"></span>
               </Link>
@@ -47,12 +47,10 @@ export const ExtraSect = ()=>{
 
           <div className="service-content">
 
-            <h2 className="h2 service-title">Download Your Shows Watch Offline.</h2>
+            <h2 className="h2 service-title">Your Entertainment, Our Top Priority</h2>
 
             <p className="service-text">
-              Lorem ipsum dolor sit amet, consecetur adipiscing elseddo eiusmod tempor.There are many variations of
-              passages of lorem
-              Ipsum available, but the majority have suffered alteration in some injected humour.
+            Experience Arg Vision Play: Download content freely, register quickly, and create your own media. Share it privately or with our community. Enjoy a personalized, high-quality streaming experience. Your Vision, Your Entertainment.
             </p>
 
             <ul className="service-list">
@@ -61,14 +59,13 @@ export const ExtraSect = ()=>{
                 <div className="service-card">
 
                   <div className="card-icon">
-                    {/* <ion-icon name="tv"></ion-icon> */}
                   </div>
 
                   <div onClick={handleOnchangeBackTwo} className="card-content">
-                    <h3 className="h3 card-title">Enjoy on Your TV.</h3>
+                    <h3 className="h3 card-title">Available on all devices</h3>
 
                     <p className="card-text">
-                      Lorem ipsum dolor sit amet, consecetur adipiscing elit, sed do eiusmod tempor.
+                    Access our platform from any device and enjoy seamless content wherever you are.
                     </p>
                   </div>
 
@@ -79,14 +76,13 @@ export const ExtraSect = ()=>{
                 <div className="service-card">
 
                   <div className="card-icon">
-                    {/* <ion-icon name="videocam"></ion-icon> */}
                   </div>
 
                   <div onClick={handleOnchangeBackTree} className="card-content">
-                    <h3 className="h3 card-title">Watch Everywhere.</h3>
+                    <h3 className="h3 card-title">Available everywhere</h3>
 
                     <p className="card-text">
-                      Lorem ipsum dolor sit amet, consecetur adipiscing elit, sed do eiusmod tempor.
+                      No geographical limits—enjoy your content wherever you are.
                     </p>
                   </div>
 

@@ -4,6 +4,7 @@ import { useUserContext } from "@/components/context";
 import SecLoader from "@/components/SecLoader";
 import { GetProfileData } from "../../../../utils/GetProfileData/GetProfileData";
 import { changeProfileData } from "../../../../utils/ChangeProfileData/ChangeProfileData";
+import Image from "next/image";
 
 export const Profile = () => {
   const { token, clearToken, idUser, clearIdUser } = useUserContext();
@@ -18,10 +19,10 @@ export const Profile = () => {
   const [isModalActive, setIsModalActive] = useState("");
   const [isModalEditActive, setIsModalEditActive] = useState("");
   const userId = idUser;
-  const avatar1 = "urlavatar1";
-  const avatar2 = "urlavatar2";
-  const avatar3 = "urlavatar3";
-  const avatar4 = "urlavatar4";
+  const avatar1 = "https://res.cloudinary.com/dytw1ig6r/image/upload/v1721905486/Arg%20vision/AvatarProfile/kf03bpoywtjibib6bpeh.jpg";
+  const avatar2 = "https://res.cloudinary.com/dytw1ig6r/image/upload/v1721905486/Arg%20vision/AvatarProfile/avuuvukrwruezptcqu7r.jpg";
+  const avatar3 = "https://res.cloudinary.com/dytw1ig6r/image/upload/v1721905485/Arg%20vision/AvatarProfile/hsqdbzlk5guwjtxf2bb5.jpg";
+  const avatar4 = "https://res.cloudinary.com/dytw1ig6r/image/upload/v1721905485/Arg%20vision/AvatarProfile/mvhof0bgrsm5yqmdkq1g.jpg";
 
   const alertOpTime = ()=>{
     setAlertOp("active-alert")
@@ -46,19 +47,20 @@ export const Profile = () => {
   }
 
   const closeModalActiveUser = ()=>{
+    setAvatar("")
     setIsModalEditActive("")
     document.body.style.overflow = 'auto';
   }
   
   const validateProfileData = () => {
     if (name && name.trim().split(' ').length < 2) {
-      return 'El nombre debe tener al menos 2 palabras.';
+      return 'The name must have at least 2 words.';
     }
     if (genre && (genre !== 'male' && genre !== 'female')) {
-      return 'El género debe ser "masculino" o "femenino".';
+      return 'The gender must be “male” or “female.';
     }
     if (phone && (phone.length < 10 || phone.length > 15)) {
-      return 'El teléfono debe tener entre 10 y 15 dígitos.';
+      return 'The telephone number must be between 10 and 15 digits.';
     }
     return '';
   };
@@ -81,7 +83,6 @@ export const Profile = () => {
 
     try {
       const updatedProfile = await changeProfileData(editedData, token);
-      console.log('Perfil actualizado con éxito', updatedProfile);
       setUserData(updatedProfile);
       setError('');
       setAlertOp("");
@@ -89,7 +90,6 @@ export const Profile = () => {
       setIsModalEditActive("")
       document.body.style.overflow = 'auto';
     } catch (error: any) {
-      console.error('Error al actualizar el perfil:', error.message);
       alertOpTime()
       setError(error.message);
     }
@@ -119,7 +119,7 @@ export const Profile = () => {
         setPhone(data.phone);
         setAvatar(data.avatar);
       } catch (error) {
-        console.error("Error al obtener los datos del perfil:", error);
+        throw error;
       }
     };
 
@@ -129,7 +129,7 @@ export const Profile = () => {
   }, [idUser, token]);
 
   if (isLoading) {
-    return <SecLoader />;
+    return <SecLoader/>;
   }
   
 
@@ -140,7 +140,7 @@ export const Profile = () => {
           <div className="left-container-profile">
             <div className="avatar-inf-container">
               <div onClick={activeModalAvatar} className="avatar-container">
-                {/* <Image src={"/"} ></Image> */}
+                <Image src={userData.avatar} alt="avatar" width={150} height={150} ></Image>
                 <div className="edit-container">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1 0 32c0 8.8 7.2 16 16 16l32 0zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"/></svg>
                 </div>
@@ -150,7 +150,7 @@ export const Profile = () => {
                 <p>{userData.email}</p>
                 <ul className="list-inf-container">
                   <li><p>{userData.phone}</p></li>
-                  <li><p>{userData.age} años</p></li>
+                  <li><p>{userData.age} years old</p></li>
                   <li>
                     {
                       userData.genre === "male" ? (
@@ -200,34 +200,34 @@ export const Profile = () => {
                     </div>
                   </div>
                   <div className="content-creator">
-                    <span className="title-creator">Order validated</span>
-                    <p className="message-creator">Thank you for your purchase. your package will be delivered within 2 days of your purchase</p>
+                    <span className="title-creator">Switch to Creator Mode</span>
+                    <p className="message-creator">Soon you'll be able to upgrade your profile to a creator, allowing you to upload content for sharing or keeping it private.</p>
                   </div>
                 </div>
               </div>
             </div>
             <div className="inf-app-cont">
               <div className="table">
-                <p>Informacion general</p>
+                <p>About the App:</p>
                 <ul>
                   <li>
-                    <span>profile</span>
+                    <span>Profile Type:</span>
                     <span>User</span>
                   </li>
                   <div className="sep-gradient"></div>
                   <li>
-                    <span>profile</span>
-                    <span>User</span>
+                    <span>Last Update</span>
+                    <span>July 2024</span>
                   </li>
                   <div className="sep-gradient"></div>
                   <li>
-                    <span>profile</span>
-                    <span>User</span>
+                    <span>Version</span>
+                    <span>1.0.0</span>
                   </li>
                   <div className="sep-gradient"></div>
                   <li>
-                    <span>profile</span>
-                    <span>User</span>
+                    <span>Developed by</span>
+                    <span><a style={{color: "#fff"}} href="https://santiagocabral.vercel.app" target="BLANK">Santiago Cabral</a></span>
                   </li>
                 </ul>
               </div>
@@ -253,28 +253,28 @@ export const Profile = () => {
               <button onClick={()=>{
                 setAvatar(avatar1)
               }}>
-                Avatar1
+                <Image width={150} height={150} alt="avatar change" src={avatar1} ></Image>
               </button>
             </li>
             <li className="avatar-li">
               <button onClick={()=>{
                 setAvatar(avatar2)
               }}>
-                Avatar2
+                <Image width={150} height={150} alt="avatar change" src={avatar2} ></Image>
               </button>
             </li>
             <li className="avatar-li">
               <button onClick={()=>{
                 setAvatar(avatar3)
               }}>
-                Avatar3
+                <Image width={150} height={150} alt="avatar change" src={avatar3} ></Image>
               </button>
             </li>
             <li className="avatar-li">
               <button onClick={()=>{
                 setAvatar(avatar4)
               }}>
-                Avatar4
+                <Image width={150} height={150} alt="avatar change" src={avatar4} ></Image>
               </button>
             </li>
           </ul>
@@ -315,21 +315,21 @@ export const Profile = () => {
                       </div>
                       <div className="text-container">
                           {error && <p style={{color: "#d65563"}} className="error-message">{error}</p>}
-                          <p className="description">Error el formulario</p>
+                          <p className="description">Form Error</p>
                       </div>
                       </div>
                   </div>
           </div>
 
           <input
-              type="email"
+              type="text"
               className="input"
               placeholder={userData.name}
               onChange={(e) => setName(e.target.value)}
             />
 
             <input
-              type="email"
+              type="number"
               className="input"
               placeholder={userData.phone}
               onChange={(e) => setPhone(e.target.value)}
@@ -340,14 +340,14 @@ export const Profile = () => {
               value={genre} 
               onChange={(e) => setGenre(e.target.value)}
             >
-              <option value="">Género</option>
-              <option value="male">Masculino</option>
-              <option value="female">Femenino</option>
+              <option value="">Genre</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
             </select>
 
           <div className="button-conainer-avatar">
             <button onClick={handleUpdateProfile} type="submit" className="form-btn-register">
-              <span>Actualizar</span>
+              <span>Update</span>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                   <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"/>
               </svg>
@@ -359,7 +359,6 @@ export const Profile = () => {
         </div>
       </article>
     </section>
-
   );
 };
 

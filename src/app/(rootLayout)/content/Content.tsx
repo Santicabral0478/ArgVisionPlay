@@ -27,19 +27,22 @@ export const Content = () => {
   const [allContent, setAllContent] = useState<IContent[]>();
   const [searchReq, setSearchReq] = useState('');
   const [isHiddenSpecial, setIsHiddenSpecial] = useState("");
-  const [isLoading, setIsLoading] = useState(false); // Estado de carga
-  const [noResults, setNoResults] = useState(false); // Estado de resultados
+  const [isLoading, setIsLoading] = useState(false); 
+  const [noResults, setNoResults] = useState(false); 
 
   const handleOnSearch = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setIsLoading(true); // Inicia el loader
-    setNoResults(false); // Resetea el estado de no resultados
+    if(searchReq === ""){
+      return
+    }
+    setIsLoading(true); 
+    setNoResults(false); 
     try {
       const title = searchReq;
       const searchResponse = await GetContentByTitle(title);
       setAllContent(searchResponse);
       if (searchResponse.length === 0) {
-        setNoResults(true); // Si no hay resultados, establece noResults a true
+        setNoResults(true); 
       }
       if (searchReq) {
         setIsHiddenSpecial("hidden-special");
@@ -47,7 +50,7 @@ export const Content = () => {
     } catch (error) {
       console.log(error);
     } finally {
-      setIsLoading(false); // Termina el loader
+      setIsLoading(false); 
     }
   }
 
@@ -79,7 +82,7 @@ export const Content = () => {
               <div className="form-control-searchset">
                 <input
                   type="text"
-                  placeholder="Type something"
+                  placeholder="Search by title"
                   className="input-searchset input-alt-searchset"
                   value={searchReq}
                   onChange={(e) => {
@@ -131,27 +134,30 @@ export const Content = () => {
                 <div className="add-gradient"></div>
                 <div className="str-content-public">
                   <div className="h2-p-cont">
-                    <h2>All Content</h2>
-                    <p>Str public</p>
+                    <h2>Add to Your List</h2>
+                    <br />
+                    <p>Select all the content you like and add it to your favorites list.</p>
                   </div>
 
-                  <button className="button-suscribe">
-                    <p>Subscribe</p>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth="4"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M14 5l7 7m0 0l-7 7m7-7H3"
-                      />
-                    </svg>
-                  </button>
+                  <Link href={"/favorite"}>
+                    <button className="button-suscribe">
+                      <p>Favorites</p>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-6 w-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M14 5l7 7m0 0l-7 7m7-7H3"
+                        />
+                      </svg>
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>

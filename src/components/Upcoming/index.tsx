@@ -33,7 +33,7 @@ export const Upcoming = ()=>{
           <div className="flex-wrapper">
 
             <div className="title-wrapper">
-              <h2 className="h2 section-title">Upcoming Movies</h2>
+              <h2 className="h2 section-title">The Latest</h2>
             </div>
 
             <ul className="filter-list">

@@ -1585,13 +1585,19 @@ SEARCH ROUTE
   position: relative;
   width: 8rem;
   height: 8rem;
-  border-radius: 50%;
+  border-radius: 10px;
   background-color: #383838;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 4px solid #499ff6;
+  border: 2px solid #2196F3;
   cursor: pointer;
+}
+
+.avatar-container img{
+  border-radius: 8px;
+  width: 100%;
+  height: auto;
 }
 
 .edit-container{
@@ -2239,10 +2245,10 @@ PLAYER
     border-radius: 10px;
 }
 
-.container-pause{
+.container-pause {
   position: absolute;
   padding: 1rem 2rem;
-  color: aliceblue;
+  color: rgb(255, 255, 255);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -2251,7 +2257,7 @@ PLAYER
   left: -1px;
   width: calc(100% + 1px);
   height: 100%;
-  background: linear-gradient(90deg, rgb(1 6 16 / 81%) 33%, rgb(1 6 16 / 63%) 56%, rgb(1 6 16 / 37%) 82%, rgba(1, 6, 16, 0.061) 100%);
+  background: linear-gradient(90deg, rgb(1 6 16 / 77%) 33%, rgb(1 6 16 / 55%) 56%, rgb(1 6 16 / 20%) 82%, rgb(1 6 16 / 5%) 100%);
   margin-bottom: 2rem;
   transition: all .4s ease-in;
   opacity: 0;
@@ -2355,18 +2361,30 @@ PLAYER
   justify-content: space-between;
 }
 
-.avatar-change li button{
+.avatar-change li button {
   transition: all .3s ease-in;
   width: 100%;
   aspect-ratio: 1;
   background: rgb(96, 96, 96);
   border: 1px solid #9b9b9b;
-  border-radius: 50%;
+  border-radius: 10px;
+}
+
+.avatar-change li button img{
+  width: 100%;
+  height: auto;
+  border-radius: 9px;
 }
 
 .avatar-change li button:focus {
   border: 3px solid #4290ff;
   box-shadow: 0px 0px 15px -10px #00d5ff;
+}
+
+.avatar-change li button:focus img {
+  width: 100%;
+  height: auto;
+  border-radius: 7px;
 }
 
 .avatar-change li {
@@ -2448,21 +2466,20 @@ PLAYER
 /* delete content from favorite (button) */
 
 .bin-button {
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10rem;
-  background-color: rgb(109 37 37);
-  cursor: pointer;
-  border: 2px solid rgb(255 129 129);
-  transition-duration: 0.3s;
-  padding: 15px;
-  z-index: 3;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    background-color: rgb(109 37 37);
+    cursor: pointer;
+    transition-duration: 0.3s;
+    padding: 15px;
+    z-index: 3;
 }
 .bin-bottom {
   width: 15px;

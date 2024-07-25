@@ -45,7 +45,7 @@ export const Favorite = () => {
     if (!allContentFavorite || allContentFavorite.length === 0) {
         return (
             <section className="no-there-fav">
-                <h1>No hay favoritos...</h1>
+                <h1>No favorites...</h1>
             </section>
         );
     }
@@ -55,7 +55,7 @@ export const Favorite = () => {
             <div className="container">
                 <div className="space-white-cont"></div>
                 <div className="title-wrapper">
-                    <h2 className="h2 section-title">Upcoming Movies</h2>
+                    <h2 className="h2 section-title">Favorites list</h2>
                 </div>
                 <div className="space-two-cont"></div>
                 <ul className="movies-list has-scrollbar">
@@ -63,7 +63,7 @@ export const Favorite = () => {
                         <li key={content._id}>
                             <div className="movie-card">
                                 <figure className="card-banner">
-                                    <Image width={100} height={200} src={content.poster} alt="ccc" />
+                                    <Image width={250} height={250} src={content.poster} alt="ccc" />
                                     <button onClick={() => handleDeleteFavorite(content._id)} className="bin-button">
                                         <svg className="bin-top" viewBox="0 0 39 7" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <line y1="5" x2="39" y2="5" stroke="white" strokeWidth="4"></line>
@@ -82,7 +82,7 @@ export const Favorite = () => {
                                 <div className="title-wrapper">
                                     <h3 className="card-title">{content.title}</h3>
                                     <Link href={`content/${content._id}`}>
-                                        <h3 className="card-title">Ver</h3>
+                                        <h3 className="card-title">Watch now</h3>
                                     </Link>
                                 </div>
                             </div>
