@@ -150,7 +150,7 @@ export const Profile = () => {
                 <p>{userData.email}</p>
                 <ul className="list-inf-container">
                   <li><p>{userData.phone}</p></li>
-                  <li><p>{userData.age} years old</p></li>
+                  <li><p>{userData.age} y. old</p></li>
                   <li>
                     {
                       userData.genre === "male" ? (
